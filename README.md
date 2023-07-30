@@ -5,7 +5,8 @@ Install depencies with this command
 
 After it create database
 
-```CREATE DATABASE IF NOT EXISTS nodejslogin DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+```
+CREATE DATABASE IF NOT EXISTS nodejslogin DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE nodejslogin;
 
 CREATE TABLE IF NOT EXISTS accounts (
