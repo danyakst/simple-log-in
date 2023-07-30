@@ -23,7 +23,15 @@ app.listen(5000, () => {
 })
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/login.html')
+    res.sendFile(__dirname + '/views/index.html')
+})
+
+app.get('/login', (req, res) => {
+    res.sendFile(__dirname + '/views/login.html')
+})
+
+app.get('/register', (req, res) => {
+    res.sendFile(__dirname + '/views/register.html')
 })
 
 app.post('/auth', (req, res) => {
@@ -46,6 +54,26 @@ app.post('/auth', (req, res) => {
     })} else {
         res.send('Error')
         res.end()
+    }
+})
+
+app.post('/reg', (req, res) => {
+    let username = req.body.username
+    let email = req.body.email
+    let password = req.body.password
+
+    if (username && email && password) {
+        connection.query(`INSERT INTO accounts (username, password, email) VALUES ('${username}', '${password}', '${email}')`, (err, result, fiels) => {
+            if (err) throw err
+
+            req.session.loggedin = true
+            req.session.username = username
+
+            res.redirect('/home')
+            return
+        })
+    } else {
+        res.send('error')
     }
 })
 
