@@ -1,7 +1,7 @@
 I'm using express to make api, express-session to remember our user, mysql to make connection with our database
 
 Install depencies with this command
-`npm install i`
+```npm install i```
 
 After it create database
 
