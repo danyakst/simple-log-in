@@ -18,3 +18,8 @@ CREATE TABLE IF NOT EXISTS accounts (
 
 INSERT INTO accounts (id, username, password, email) VALUES (1, 'test', 'test', 'test@test.com');
 ```
+if you getting an error just write this in mysql
+```
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password'; - Where root as your user localhost as your URL and password as your password
+flush privileges;
+```
